@@ -192,3 +192,7 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+application_default_credentials.json
+.idea
+.venv/
+my_travel_planner/.env

@@ -1,0 +1,12 @@
+[project]
+name = "travel-planner-ai"
+version = "0.1.0"
+description = "Production-Ready AI Travel Planner — Google ADK + Gemini + FastAPI"
+requires-python = ">=3.11"
+dependencies = [
+    "google-adk>=1.1.1",
+    "fastapi>=0.115.12",
+    "uvicorn>=0.34.3",
+    "python-dotenv>=1.1.0",
+]
+
