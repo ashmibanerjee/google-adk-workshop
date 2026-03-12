@@ -21,6 +21,8 @@ class QueryResponse(BaseModel):
 
 @app.post("/ask", response_model=QueryResponse)
 async def ask_agent(request: QueryRequest):
-    response = await run_agent_pipeline(query=request.query)
-    return QueryResponse(query=request.query, response=response)
-
+    """Workshop TODO: call run_agent_pipeline() once the agent + runner are implemented."""
+    raise NotImplementedError(
+        "Replace this stub by awaiting run_agent_pipeline(query=request.query) and returning a QueryResponse with "
+        "the agent's answer."
+    )

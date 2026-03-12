@@ -1,6 +1,6 @@
 # Travel Planner AI
 
-A production-ready AI travel planning agent built with **Google ADK**, **Gemini**, and **FastAPI** — demonstrated at the *Building Production-Ready AI Systems in Python with Google ADK* workshop.
+A workshop-ready starter kit for building a travel planning agent with **Google ADK**, **Gemini**, and **FastAPI** — used in the *Building Production-Ready AI Systems in Python with Google ADK* session. Core files now contain TODO-guided placeholders for participants to complete during the lab.
 
 ---
 
@@ -26,6 +26,16 @@ google-adk/
 ├── api.py                # FastAPI endpoint
 └── pyproject.toml        # Project dependencies
 ```
+
+---
+
+## Workshop TODOs
+
+1. Update `my_travel_planner/agent.py` with a fully configured `google.adk.agents.Agent` (model, description, instructions, and optional tools).
+2. Implement the session + runner wiring plus response streaming logic in `run.py` (`setup_session_and_runner`, `call_agent_async`, `run_agent_pipeline`).
+3. Wire the `/ask` FastAPI route in `api.py` to await `run_agent_pipeline()` and return the agent's reply.
+
+Everything else (environment loading, dependency scaffolding, and data models) is already in place so you can focus on the agent logic during the workshop.
 
 ---
 
@@ -83,6 +93,8 @@ The server starts at **`http://localhost:8000`**.
 
 ### 5. Query the Agent
 
+Once you've filled in the workshop TODOs, try hitting the API.
+
 **Using `curl`:**
 
 ```bash
@@ -91,7 +103,7 @@ curl -X POST http://localhost:8000/ask \
   -d '{"query": "Best things to do in Paris in spring?"}'
 ```
 
-**Example response:**
+**Example response (after completing the TODOs):**
 
 ```json
 {
@@ -104,7 +116,7 @@ curl -X POST http://localhost:8000/ask \
 
 ### Run Without the API (Script Only)
 
-You can also run the agent directly from the terminal:
+You can also run the agent directly from the terminal once the TODOs are implemented:
 
 ```bash
 uv run python run.py

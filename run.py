@@ -13,35 +13,27 @@ USER_ID = "user_1"
 SESSION_ID = "session_001"
 
 
-async def setup_session_and_runner(root_agent: Agent = None, session_id: str = SESSION_ID):
-    # Setup Runner for execution
-    session_service = InMemorySessionService()
-    session = await session_service.create_session(app_name=APP_NAME, user_id=USER_ID, session_id=session_id)
-    runner = Runner(agent=root_agent, app_name=APP_NAME, session_service=session_service)
-    return session, runner
+async def setup_session_and_runner(root_agent: Agent | None = None, session_id: str = SESSION_ID):
+    """Workshop TODO: set up the InMemorySessionService and Runner instances."""
+    raise NotImplementedError(
+        "Instantiate InMemorySessionService, create a session, and return the session along with a Runner bound to "
+        "your root agent."
+    )
 
 
-async def call_agent_async(query: str, root_agent: Agent = None, session_id: str = SESSION_ID) -> str:
-    content = types.Content(role='user', parts=[types.Part(text=query)])
-    session, runner = await setup_session_and_runner(root_agent=root_agent, session_id=session_id)
-    events = runner.run_async(user_id=USER_ID, session_id=session_id, new_message=content)
-    final_response_text = "No response received."
-    async for event in events:
-        # Key Concept: is_final_response() marks the concluding message for the turn.
-        if event.is_final_response():
-            if event.content and event.content.parts:
-                final_response_text = event.content.parts[0].text
-            elif event.actions and event.actions.escalate:
-                final_response_text = f"Agent escalated: {event.error_message or 'No specific message.'}"
-            break
-
-    print(f"<<< Agent Response: {final_response_text}")
-    return final_response_text
+async def call_agent_async(query: str, root_agent: Agent | None = None, session_id: str = SESSION_ID) -> str:
+    """Workshop TODO: send the user's query to the runner and capture the final response."""
+    raise NotImplementedError(
+        "Create a google.genai.types.Content payload, feed it through Runner.run_async, and parse the final "
+        "response text to return to the caller."
+    )
 
 
 async def run_agent_pipeline(query: str) -> str:
-    root_agent = get_root_agent()
-    return await call_agent_async(query=query, root_agent=root_agent, session_id=SESSION_ID)
+    """Workshop TODO: orchestrate the call by wiring up the root agent and async runner helper."""
+    raise NotImplementedError(
+        "Call get_root_agent(), pass it into call_agent_async(), and return the text you receive back."
+    )
 
 
 if __name__ == "__main__":
