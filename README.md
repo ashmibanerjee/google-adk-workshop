@@ -18,7 +18,7 @@ A workshop-ready starter kit for building a travel planning agent with **Google 
 ## Project Structure
 
 ```
-google-adk/
+google-adk-workshop/
 ├── my_travel_planner/
 │   ├── agent.py          # Root agent definition
 │   └── .env              # API keys (not committed)
